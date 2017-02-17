@@ -1,0 +1,169 @@
+*{margin: 0; padding: 0; list-style-type: none;
+
+}
+
+body{
+	background-color:#dadada;
+	font-size: 87.5% ;
+	font-family:Lato,sans-serif;
+	line-height: 1.5;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+.container{
+	background-color: rgb(15, 15,15);
+	margin: 0px auto;
+	overflow: hidden;
+
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.heading{
+	color: #6f6f6f;
+	margin-top: 15px;
+
+}
+
+
+.login_form{
+	display: inline-block;
+	width:300px;
+	margin: 0px auto;
+	margin-top: 25px;
+	/* border:5px solid gray;
+	border-radius: 5px; */
+}
+
+.login_input{
+	width: 100%;
+	height: 60px;
+	color: #929292;
+	margin: 0px 0px;
+	border:none;
+	font-size: 16px;
+	text-align: center;
+	outline: none;
+
+}
+.login_input:first-child{
+	border-bottom: 4px solid #f8b1a2;
+}
+
+.login_btn{
+	background-color: #566573;
+	color: #ffffff;
+	width: 100%;
+	height:60px;
+	border:none;
+	font-size: 18px;
+	margin: 0px 0px;
+	outline: none;
+}
+
+.register_form{
+	display: inline-block;
+	width:312px;
+	margin: 0px auto;
+	border:4px solid #D5F5E3;
+	border-radius: 5px;*/
+}
+
+.register_name{
+	width: 100%;
+	height: 50px;
+	color: #929292;
+	margin: 0px 0px;
+	border:none;
+	font-size: 16px;
+	text-align: center;
+	outline: none;
+	border-bottom: 4px solid #fad5a6;
+
+}
+
+.register_email{
+	width: 100%;
+	height: 50px;
+	color: #929292;
+	margin: 0px 0px;
+	border:none;
+	font-size: 16px;
+	text-align: center;
+	outline: none;
+	border-bottom: 4px solid #faf9aa;
+
+
+}
+
+
+
+.register_no{
+	width: 100%;
+	height: 50px;
+	color: #929292;
+	margin: 0px 0px;
+	border:none;
+	font-size: 16px;
+	text-align: center;
+	outline: none;
+	border-bottom: 4px solid #c8f099;
+
+}
+
+
+.register_events{
+	display:flex;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	color: #929292;
+	margin: 0px 0px;
+	border:none;
+	font-size: 16px;
+	text-align: center;
+	outline: none;
+	border-bottom: 4px solid #c6e2ed;
+
+}
+
+.register_btn{
+	background-color: #566573;
+	color: #ffffff;
+	width: 100%;
+	height:50px;
+	border:none;
+	font-size: 24px;
+	margin: 0px 0px;
+	outline: none;
+}
+
+
+.registered{
+	margin: 10px;
+	font-size:35px;
+	color:#6f6f6f;
+}
+.new_btn{
+	background-color: skyblue;
+	font-size: 18px;
+	color: white;
+	margin-top: 20px;
+	width: 200px;
+	height: 40px;
+	border: 1px solid white;
+	border-radius: 5px;
+
+}
+
+@media (max-width: 420px){
+
+.register_form,.login_form{
+	width: auto;
+}
+}

@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>Register</title>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="{% static 'css/checkstyle.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+	<script type="text/javascript">
+		history.pushState(null, null, document.URL);
+		window.addEventListener('popstate', function () {
+		    history.pushState(null, null, document.URL);
+		});
+	</script>
+</head>
+<body>
+	<form action="" method="POST"accept-charset="UTF-8" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+		{% csrf_token %}
+		<div class = "register_form" >
+			<input class="register_name" type="text" name="name" maxlength="100" value="" placeholder="Your Name" required/>
+			<input class="register_email" type="email" name="email" maxlength="100" value="" placeholder="Email Address" required/>
+			<input class="register_no" type="tel" pattern="[0-9]{10}" name="phone_number"value="" placeholder="Phone Number" title=" Enter Valid number (10 digits)"required/>
+			<div class="register_events">
+				<div class="control-group">
+				    <h1>Events</h1>
+				    <label class="control control--checkbox">Mad-Arts
+				      <input class="chk" type="checkbox" onclick="change_button(this,'submit_btn')" name="events" value="1"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Football
+				      <input class="chk" type="checkbox" name="events" value="2"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Cricket
+				      <input class="chk" type="checkbox" name="events" value="3"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Treasure-Hunt
+				      <input class="chk" type="checkbox" name="events" value="4"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Mr&Ms.Furore
+				      <input class="chk" type="checkbox" name="events" value="5"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Group-Dance
+				      <input class="chk" type="checkbox" name="events" value="6"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">JAM
+				      <input class="chk" type="checkbox" name="events" value="7"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Sketching
+				      <input class="chk" type="checkbox" name="events" value="8"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				 </div>
+			</div>
+			<input id="submit_btn" class="register_btn" type="submit" name="Submit" value="Register"disabled="disabled"/>
+		</div>
+	</form>
+
+	<script type = "text/javascript">
+		$('#submit_btn').prop("disabled", true);
+		$('input:checkbox').click(function() {
+		        if ($(this).is(':checked')) {
+					$('#submit_btn').prop("disabled", false);
+		        } else {
+				if ($('.chk').filter(':checked').length < 1){
+					$('#submit_btn').attr('disabled',true);}
+				}
+		});
+	</script>
+</body>
+</html>		 
+			
+				
+
