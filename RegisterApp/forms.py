@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from RegisterApp.models import Register
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate
 
 
 
@@ -15,7 +15,7 @@ class LoginForm(forms.Form):
 	def clean(self , *args , **kwargs):
 		username = self.cleaned_data.get("username")
 		password = self.cleaned_data.get("password")
-		
+
 		if username and password:
 			user = authenticate(username=username , password = password)
 			if not user:
@@ -25,4 +25,4 @@ class LoginForm(forms.Form):
 class RegForm(ModelForm):
 	class Meta:
 		model= Register
-		fields=["name","email","phone_number","events"]
+		fields=["name","email","phone_no","college_name","ticket_no","ticket_cat","reg_by"]

@@ -25,7 +25,7 @@ SECRET_KEY = '8q*xu_jw*@dcsj^g7d&)bn8s4$g+-op0m+yt8hb8fi^sdew!2m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["surya43.pythonanywhere.com"]
 
 
 # Application definition
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'multiselectfield',
-    'bootstrapform',
     'RegisterApp',
 ]
 
@@ -57,7 +56,7 @@ ROOT_URLCONF = 'main_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,8 +77,12 @@ WSGI_APPLICATION = 'main_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "surya43$mod_db",
+        'USER': "surya43",
+        'PASSWORD':"password@1234",
+        'HOST': 'surya43.mysql.pythonanywhere-services.com',
+        'PORT': '',
     }
 }
 
@@ -108,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -121,3 +124,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = u'/home/surya43/furore_reg_app/static'

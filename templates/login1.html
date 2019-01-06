@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
 </head>
 <body>
-	<h1 class="heading">Volunteer Page</h1>
+	<h1 class="heading">Login Page</h1>
 	<form action="" method="POST" accept-charset="UTF-8" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"
 	    id="login_form" onsubmit="return checkBeforeSubmit()">
 	    {% csrf_token %}
@@ -19,11 +19,6 @@
 		<input class = "login_btn" type="submit" value="Login">
 		</div>
 	</form>
-	<div style="color:#dcdcdc;margin:40px auto;font-style:italic;">
-	<h3><u>Developers</u></h3>
-	<h4>Surya T - 9066658336</h4>
-	<h4>Preet G - 9591207525</h4>
-	</div>
 
 <!-- JavaScript to prevent multiple form submissions -->
 	<script type="text/javascript">
@@ -39,6 +34,3 @@
 
 </body>
 </html>
-
-
-

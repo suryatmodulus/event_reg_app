@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>Register</title>
+	<link rel="stylesheet" href="{% static 'css/checkbox_style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<!--<script type="text/javascript" src="{% static 'js/pace.min.js' %}"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+	<script type="text/javascript">
+		history.pushState(null, null, document.URL);
+		window.addEventListener('popstate', function () {
+		    history.pushState(null, null, document.URL);
+		});
+	</script>
+</head>
+<body>
+	<form action="" method="POST"accept-charset="UTF-8" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"
+	    id="reg_form">
+		{% csrf_token %}
+		<div class = "register_form" >
+			<input class="register_name" type="text" name="name" maxlength="100" value="" placeholder="Your Name"
+			autocapitalize="on" required/>
+			<input class="register_email" type="email" name="email" maxlength="100" value="" placeholder="Email Address"
+			pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" required/>
+			<input class="register_no" type="tel" pattern="[0-9]{10}" name="phone_no"value="" placeholder="Phone Number" title=" Enter Valid number (10 digits)"required/>
+            <input class="college_name" type="text" name="college_name" maxlength="100" value="" placeholder="College Name"
+			autocapitalize="on" required/>
+			<input class="ticket_no" type="tel" pattern="[0-9]{1,5}" name="ticket_no" value="" placeholder="Ticket Number" required/>
+			<input type="text" name="reg_by" maxlength="100" value="{{user}}" hidden/>
+			<div class="register_events">
+				<div class="control-group">
+				    <h3>Ticket Category</h3>
+				    <label class="control control--checkbox">Silver
+				      <input class="chk" type="radio" name="ticket_cat" value="silver"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Gold
+				      <input class="chk" type="radio" name="ticket_cat" value="gold"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Platinum
+				      <input class="chk" type="radio" name="ticket_cat" value="platinum"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				</div>
+			</div>
+			<input id="submit_btn" class="register_btn" type="submit" name="Submit" value="Register" disabled="disabled"/>
+		</div>
+	</form>
+
+	<div style="display:block;width:100px;height:30px;line-height:30px;background-color:#FCF44F;color:#141414;font-size:20px;border-radius:5px;position:absolute;bottom:8px;right:8px;"><a href="/logout" >Logout</a></div>
+
+<!-- Jquery for Enabling Submit button only when check box is selected-->
+	<script type = "text/javascript">
+		$('#submit_btn').prop("disabled", true);
+		$('input:radio').click(function() {
+		        if ($(this).is(':checked')) {
+					$('#submit_btn').prop("disabled", false);
+		        } else {
+				if ($('.chk').filter(':checked').length < 1){
+					$('#submit_btn').attr('disabled',true);}
+				}
+		});
+	</script>
+
+
+
+<!--  Jquery to prevent multiple form submissions -->
+	<script type="text/javascript">
+	    $('#reg_form').submit(function(){
+            $this = $(this);
+
+            /** prevent double posting */
+            if ($this.data().isSubmitted) {
+                return false;
+            }
+            /** mark the form as processed, so we will not process it again */
+            $this.data().isSubmitted = true;
+
+            return true;
+        });
+	</script>
+
+</body>
+</html>
+
+
+

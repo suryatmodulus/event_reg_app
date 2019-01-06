@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,16 @@
 	<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
 </head>
 <body>
+	<div class="success_holder">
 	<h1 class="registered">Registered !</h1>
-	<button class="new_btn" ><a href="/register">New Registry</a></button>
+	<h2 class="qr_id" style="padding:25px;color:white;border:3px solid #9ed670;margin:20px 15px;">Reg-ID : {{qr_id}}</h2>
+	<a href="/register"><button class="new_btn" >New Registry</button></a>
+	</div>
+	<div style="color:#dcdcdc;margin:60px auto;font-style:italic;">
+	<h3><u>Developers</u></h3>
+	<h4>Surya T - 9066658336</h4>
+	<h4>Preet G - 9591207525</h4>
+	</div>
 </body>
 </html>
 

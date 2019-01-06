@@ -6,9 +6,10 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>Register</title>
+	<link rel="stylesheet" href="{% static 'css/checkbox_style.css' %}">
 	<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<link rel="stylesheet" href="{% static 'css/checkstyle.css' %}">
+	<!--<script type="text/javascript" src="{% static 'js/pace.min.js' %}"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 	<script type="text/javascript">
 		history.pushState(null, null, document.URL);
@@ -18,53 +19,282 @@
 	</script>
 </head>
 <body>
-	<form action="" method="POST"accept-charset="UTF-8" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+	<form action="" method="POST"accept-charset="UTF-8" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"
+	    id="reg_form">
 		{% csrf_token %}
 		<div class = "register_form" >
-			<input class="register_name" type="text" name="name" maxlength="100" value="" placeholder="Your Name" required/>
-			<input class="register_email" type="email" name="email" maxlength="100" value="" placeholder="Email Address" required/>
+			<input class="register_name" type="text" name="name" maxlength="100" value="" placeholder="Your Name"
+			autocapitalize="on" required/>
+			<input class="register_email" type="email" name="email" maxlength="100" value="" placeholder="Email Address"
+			pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" required/>
 			<input class="register_no" type="tel" pattern="[0-9]{10}" name="phone_number"value="" placeholder="Phone Number" title=" Enter Valid number (10 digits)"required/>
 			<div class="register_events">
 				<div class="control-group">
-				    <h1>Events</h1>
-				    <label class="control control--checkbox">Mad-Arts
-				      <input class="chk" type="checkbox" onclick="change_button(this,'submit_btn')" name="events" value="1"/>
+				    <h1>PHOTOGRAPHY</h1>
+				    <label class="control control--checkbox">Photography(200)
+				      <input class="chk" type="checkbox" name="events" value="1" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
-				    <label class="control control--checkbox">Football
-				      <input class="chk" type="checkbox" name="events" value="2"/>
+				    <label class="control control--checkbox">Short Movie(400)
+				      <input class="chk" type="checkbox" name="events" value="2" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
-				    <label class="control control--checkbox">Cricket
-				      <input class="chk" type="checkbox" name="events" value="3"/>
+				    <h1>ART</h1>
+				    <label class="control control--checkbox">Sketching(50)
+				      <input class="chk" type="checkbox" name="events" value="3" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
-				    <label class="control control--checkbox">Treasure-Hunt
-				      <input class="chk" type="checkbox" name="events" value="4"/>
+				    <label class="control control--checkbox">Painting(50)
+				      <input class="chk" type="checkbox" name="events" value="4" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
-				    <label class="control control--checkbox">Mr&Ms.Furore
-				      <input class="chk" type="checkbox" name="events" value="5"/>
+				    <label class="control control--checkbox">Campus Painting(50)
+				      <input class="chk" type="checkbox" name="events" value="5" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
-				    <label class="control control--checkbox">Group-Dance
-				      <input class="chk" type="checkbox" name="events" value="6"/>
+				    <label class="control control--checkbox">Crafts/Installation(50)
+				      <input class="chk" type="checkbox" name="events" value="6" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
-				    <label class="control control--checkbox">JAM
-				      <input class="chk" type="checkbox" name="events" value="7"/>
+				    <label class="control control--checkbox">No Idea(50)
+				      <input class="chk" type="checkbox" name="events" value="7" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
-				    <label class="control control--checkbox">Sketching
-				      <input class="chk" type="checkbox" name="events" value="8"/>
+				    <label class="control control--checkbox">Face Painting(50)
+				      <input class="chk" type="checkbox" name="events" value="8" onClick="add_price(this);"/>
 				      <div class="control__indicator"></div>
 				    </label>
+				    <h1>DANCE</h1>
+				    <label class="control control--checkbox">Solo Dance(200)
+				      <input class="chk" type="checkbox" name="events" value="9" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Tapang(100)
+				      <input class="chk" type="checkbox" name="events" value="10" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Western Group(800)
+				      <input class="chk" type="checkbox" name="events" value="11" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Indian Group(800)
+				      <input class="chk" type="checkbox" name="events" value="12" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <h1>LITERARY</h1>
+				    <label class="control control--checkbox">Debate(100)
+				      <input class="chk" type="checkbox" name="events" value="13" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">JAM(100)
+				      <input class="chk" type="checkbox" name="events" value="14" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Series of Unfortunate(50)
+				      <input class="chk" type="checkbox" name="events" value="15" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Quiz-Genreral(100)
+				      <input class="chk" type="checkbox" name="events" value="16" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Pulp Fiction(100)
+				      <input class="chk" type="checkbox" name="events" value="17" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <h1>MUSIC</h1>
+				    <label class="control control--checkbox">Battle of Bands(800)
+				      <input class="chk" type="checkbox" name="events" value="18" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Instrumental Solo(100)
+				      <input class="chk" type="checkbox" name="events" value="19" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Western Vox Solo(100)
+				      <input class="chk" type="checkbox" name="events" value="20" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Bollywood Vox Solo(100)
+				      <input class="chk" type="checkbox" name="events" value="21" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Classical Vox Solo(100)
+				      <input class="chk" type="checkbox" name="events" value="22" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <h1>THEATRE</h1>
+				    <label class="control control--checkbox">Mad Ads(400)
+				      <input class="chk" type="checkbox" name="events" value="23" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Street Play(300)
+				      <input class="chk" type="checkbox" name="events" value="24" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Mono Acting(100)
+				      <input class="chk" type="checkbox" name="events" value="25" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Pot Pourri(150)
+				      <input class="chk" type="checkbox" name="events" value="26" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Standup Comedy(200)
+				      <input class="chk" type="checkbox" name="events" value="27" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <h1>FASHION</h1>
+				    <label class="control control--checkbox">Fashion Show(1500)
+				      <input class="chk" type="checkbox" name="events" value="28" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Mr & Mrs.Atlantis(100)
+				      <input class="chk" type="checkbox" name="events" value="29" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <h1>MISC</h1>
+				    <label class="control control--checkbox">Crime Connect 2.0(200)
+				      <input class="chk" type="checkbox" name="events" value="30" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Fifa Auction(100)
+				      <input class="chk" type="checkbox" name="events" value="31" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Mini Militia(50)
+				      <input class="chk" type="checkbox" name="events" value="32" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">DSI Minute(50)
+				      <input class="chk" type="checkbox" name="events" value="33" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">GoT Quiz(100)
+				      <input class="chk" type="checkbox" name="events" value="34" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Carrom(100)
+				      <input class="chk" type="checkbox" name="events" value="35" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Treasure Hunt(150)
+				      <input class="chk" type="checkbox" name="events" value="36" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Beat-Boxing(150)
+				      <input class="chk" type="checkbox" name="events" value="37" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Perspective(50)
+				      <input class="chk" type="checkbox" name="events" value="54" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <h1>TECHNICAL</h1>
+				    <label class="control control--checkbox">Chuck Glider(400)
+				      <input class="chk" type="checkbox" name="events" value="38" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Code Golfing(100)
+				      <input class="chk" type="checkbox" name="events" value="39" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Corporate Roadies(150)
+				      <input class="chk" type="checkbox" name="events" value="40" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Tech DC & Pictonary(100)
+				      <input class="chk" type="checkbox" name="events" value="41" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Ideathon(100)
+				      <input class="chk" type="checkbox" name="events" value="42" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Tech Treasure Hunt(100)
+				      <input class="chk" type="checkbox" name="events" value="43" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Away We Go(100)
+				      <input class="chk" type="checkbox" name="events" value="44" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Shark Tank(1000)
+				      <input class="chk" type="checkbox" name="events" value="45" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Kinet Sports(120)
+				      <input class="chk" type="checkbox" name="events" value="46" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Test Your Senses(50)
+				      <input class="chk" type="checkbox" name="events" value="47" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Funk from Junk(100)
+				      <input class="chk" type="checkbox" name="events" value="48" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Event Selfie(50)
+				      <input class="chk" type="checkbox" name="events" value="49" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <h1>SPORTS</h1>
+				    <label class="control control--checkbox">Futsal(800)
+				      <input class="chk" type="checkbox" name="events" value="50" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Squash(500)
+				      <input class="chk" type="checkbox" name="events" value="51" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Basketball(400)
+				      <input class="chk" type="checkbox" name="events" value="52" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class="control control--checkbox">Cricket(500)
+				      <input class="chk" type="checkbox" name="events" value="53" onClick="add_price(this);"/>
+				      <div class="control__indicator"></div>
+				    </label>
+
 				 </div>
 			</div>
-			<input id="submit_btn" class="register_btn" type="submit" name="Submit" value="Register"disabled="disabled"/>
+			<div class="price_box">Total Amount : Rs.<span id="total_price"></div>
+			<input id="amount" type="hidden" name="amount" value="0"/>
+			<input id="submit_btn" class="register_btn" type="submit" name="Submit" value="Register" disabled="disabled"/>
 		</div>
 	</form>
 
+<!-- Java Script to validate Email address -->
+
+
+<!-- JavaScript for returning Price Value-->
+	<script type="text/javascript">
+	document.getElementById('total_price').innerHTML = " 0 /-";
+    var total = 0;
+    var dict = {"1" :"200","2" :"400","3" :"50","4":"50","5":"50","6":"50","7":"50","8":"50",
+				"9" :"200","10":"100","11":"800","12":"800","13":"100","14":"100","15":"50","16":"100",
+				"17":"100","18":"800","19":"100","20":"100","21":"100","22":"100","23":"400","24":"300",
+				"25":"100","26":"150","27":"200","28":"1500","29":"100","30":"200","31":"100","32":"50",
+				"33":"50","34":"100","35" :"100","36":"150","37":"150","38":"400","39":"100","40":"150","41":"100","42":"100",
+                "43":"100","44":"100","45":"1000","46":"120","47":"50","48":"100","49":"50","50":"800","51":"500","52":"400","53":"500","54":"50"}
+    function add_price(item){
+        if(item.checked){
+        	var val_plus = parseInt(item.value);
+        	var price_plus = dict[val_plus];
+            total+= parseInt(price_plus);
+        }
+        else{
+        	var val_minus = parseInt(item.value);
+        	var price_minus = dict[val_minus];
+            total-= parseInt(price_minus);
+        }
+        document.getElementById('total_price').innerHTML = total + " /-";
+        document.getElementById('amount').value = total;
+    }
+    </script>
+
+<!-- Jquery for Enabling Submit button only when check box is selected-->
 	<script type = "text/javascript">
 		$('#submit_btn').prop("disabled", true);
 		$('input:checkbox').click(function() {
@@ -76,8 +306,25 @@
 				}
 		});
 	</script>
+
+<!--  Jquery to prevent multiple form submissions -->
+	<script type="text/javascript">
+	    $('#reg_form').submit(function(){
+            $this = $(this);
+
+            /** prevent double posting */
+            if ($this.data().isSubmitted) {
+                return false;
+            }
+            /** mark the form as processed, so we will not process it again */
+            $this.data().isSubmitted = true;
+
+            return true;
+        });
+	</script>
+
 </body>
-</html>		 
-			
-				
+</html>
+
+
 
